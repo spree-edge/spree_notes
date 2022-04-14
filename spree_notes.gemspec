@@ -8,13 +8,13 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_notes'
   s.version     = SpreeNotes.version
-  s.summary     = 'Add extension summary here'
-  s.description = 'Add (optional) extension description here'
+  s.summary     = 'Spree Notes'
+  s.description = 'A spree_extension that provides ability to add notes'
   s.required_ruby_version = '>= 2.5'
 
-  s.author    = 'You'
-  s.email     = 'you@example.com'
-  s.homepage  = 'https://github.com/your-github-handle/spree_notes'
+  s.author    = 'Bluebash Spree Team'
+  s.email     = 'radolf@bluebash.co'
+  s.homepage  = 'https://github.com/bluebash-spree-contrib/spree_notes.git'
   s.license = 'BSD-3-Clause'
 
   s.files       = `git ls-files`.split("\n").reject { |f| f.match(/^spec/) && !f.match(/^spec\/fixtures/) }
