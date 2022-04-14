@@ -1,0 +1,57 @@
+<%= render 'spree/admin/shared/order_tabs', current: :notes %>
+<% content_for :page_title do %>
+  / <%= Spree.t(:notes) %>
+<% end %>
+
+<div class="card" id="add-line-item" data-hook style="margin-bottom: 20px;">
+  <div class="card-body">
+    <%= form_for [:admin, Spree::Note.new], url: admin_notes_path , method: :post do |f| %>
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <label><%= Spree.t(:notes) %></label>
+          </div>
+          <%= f.text_area :note, cols: "5", rows: "3", required: true, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div>
+            <label>
+              <%= f.hidden_field :user_id, value: spree_current_user.id %>
+              <%= hidden_field_tag :order_id, value: @order.number %>
+            </label>
+          </div>
+          <button class="btn btn-success" type="submit">Add</button>
+        </div>
+      </div>
+    <% end %>
+    <% if @order.notes.any? %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+        </div>
+
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th><%= Spree.t('note')%></th>
+                <th><%= Spree.t('created_by')%></th>
+                <th><%= Spree.t('created_at')%></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @order.notes.order(created_at: :desc).each do |note| %>
+                <tr>
+                  <td style='max-width: 400px;'><%= note.note %></td>
+                  <td><%= note.user&.email %></td>
+                  <td><%= note.created_at %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
