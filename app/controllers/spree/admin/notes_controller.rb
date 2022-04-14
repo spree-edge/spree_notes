@@ -1,23 +1,18 @@
-class NotesController < Spree::Admin::BaseController
-  include ResourceFinder
+module Spree
+  module Admin
+    class NotesController < Spree::Admin::BaseController
+      before_action :find_resource
+      include ::Noteable
 
-  def index
-    @notes = parentable.notes
-  end
+      private
 
-  def create
-    note = parentable.notes.new(notes_params)
-    if note.save
-      flash[:success] = flash_message_for(note, :successfully_created)
-    else
-      flash[:error] = note.errors.full_messages.join(", ")
+      def notes_params
+        params.require(:note).permit(:note, :user_id)
+      end
+
+      def find_resource
+        @order = Spree::Order.find_by(number: params[:order_id])
+      end
     end
-    redirect_back(fallback_location: root_path)
-  end
-
-  private
-
-  def notes_params
-    params.require(:note).permit(:note, :user_id)
   end
 end

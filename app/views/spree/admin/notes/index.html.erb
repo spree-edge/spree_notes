@@ -5,7 +5,7 @@
 
 <div class="card" id="add-line-item" data-hook style="margin-bottom: 20px;">
   <div class="card-body">
-    <%= form_for [:admin, Spree::Note.new], url: admin_notes_path , method: :post do |f| %>
+    <%= form_for [:admin, Spree::Note.new], url: admin_order_notes_path(@order) , method: :post do |f| %>
       <div class="row">
         <div class="col-md-12">
           <div>
@@ -26,7 +26,7 @@
         </div>
       </div>
     <% end %>
-    <% if @order.notes.any? %>
+    <% if @notes.any? %>
       <div class="panel panel-default">
         <div class="panel-heading">
         </div>
@@ -41,7 +41,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @order.notes.order(created_at: :desc).each do |note| %>
+              <% @notes.order(created_at: :desc).each do |note| %>
                 <tr>
                   <td style='max-width: 400px;'><%= note.note %></td>
                   <td><%= note.user&.email %></td>
