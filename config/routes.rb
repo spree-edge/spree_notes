@@ -1,7 +1,10 @@
 Spree::Core::Engine.add_routes do
   namespace :admin do
-    resources :orders, only: [] do
+    concern :noteable do
       resources :notes, only: %i[index create destroy]
     end
+
+    resources :orders, only: [], concerns: :noteable
+    resources :users, only: [], concerns: :noteable
   end
 end

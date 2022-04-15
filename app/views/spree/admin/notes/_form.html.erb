@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-12">
+    <div>
+      <label><%= Spree.t('admin.notes') %></label>
+    </div>
+    <%= f.text_area :note, cols: "5", rows: "3", required: true, class: 'form-control' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div>
+      <label>
+        <%= f.hidden_field :user_id, value: spree_current_user.id %>
+      </label>
+    </div>
+    <button class="btn btn-success" type="submit">Add</button>
+  </div>
+</div>

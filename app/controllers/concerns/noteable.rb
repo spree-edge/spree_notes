@@ -1,25 +1,25 @@
 module Noteable
   def index
-    @notes = @order.notes
+    @notes = @resource.notes.order(created_at: :desc)
   end
 
   def create
-    note = @order.notes.new(notes_params)
+    note = @resource.notes.new(notes_params)
     if note.save
       flash[:success] = flash_message_for(note, :successfully_created)
     else
       flash[:error] = note.errors.full_messages.join(", ")
     end
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: '/')
   end
 
   def destroy
-    note = @order.notes.find_by(id: params[:id])
+    note = @resource.notes.find_by(id: params[:id])
     if note.destroy
       flash[:success] = flash_message_for(note, :successfully_removed)
     else
       flash[:error] = note.errors.full_messages.join(', ')
     end
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: '/')
   end
 end

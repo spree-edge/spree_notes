@@ -11,7 +11,7 @@ module Spree
       end
 
       def find_resource
-        @order = Spree::Order.find_by(number: params[:order_id])
+        @resource = Spree::Order.find_by(number: params[:order_id])
       end
     end
   end
