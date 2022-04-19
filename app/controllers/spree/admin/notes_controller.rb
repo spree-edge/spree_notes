@@ -62,7 +62,7 @@ module Spree
         params.require(:note).permit(:note, :user_id)
       end
 
-      def resource_location
+      def fallback_location
         spree.polymorphic_path([:admin, @behaveable, Spree::Note])
       end
 
