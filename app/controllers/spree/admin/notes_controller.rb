@@ -26,7 +26,7 @@ module Spree
         else
           flash[:error] = note.errors.full_messages.join(", ")
         end
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: fallback_location)
       end
 
       # Delete a note.
@@ -40,7 +40,7 @@ module Spree
         else
           flash[:error] = note.errors.full_messages.join(', ')
         end
-        redirect_back(fallback_location: root_path)
+        redirect_back(fallback_location: fallback_location)
       end
 
       private
@@ -60,6 +60,10 @@ module Spree
       # * <tt>Hash</tt> - Sanitized request params.
       def notes_params
         params.require(:note).permit(:note, :user_id)
+      end
+
+      def resource_location
+        spree.polymorphic_path([:admin, @behaveable, Spree::Note])
       end
 
       def context

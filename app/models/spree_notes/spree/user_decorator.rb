@@ -4,7 +4,7 @@ module SpreeOrderNotes
   module Spree
     module UserDecorator
       def self.prepended(base)
-        base.has_many :spree_notes, as: :notable #if ::SpreeNotes::Config[:noteables].include?('users')
+        base.has_many :notes, as: :notable if ::SpreeNotes::Config[:noteables].include?('users')
       end
     end
   end
