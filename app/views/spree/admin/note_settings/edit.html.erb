@@ -1,0 +1,45 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:note_settings) %>
+<% end %>
+
+<%= form_tag admin_note_settings_path, method: :put do %>
+  <div id="preferences" data-hook>
+
+    <fieldset class="general no-border-top">
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+
+          <%#-------------------------------------------------%>
+          <%# Applicable To                                   %>
+          <%#-------------------------------------------------%>
+          <div class="card mb-3" id="general-settings-currency" data-hook="general_settings_currency">
+            <div class="card-header">
+              <h1 class="card-title mb-0 h5">
+                <%= Spree.t(:applicable_to) %>
+              </h1>
+            </div>
+
+            <div class="card-body">
+              <div class="alert alert-warning col-12">
+                Select the entities for which you want to add notes
+              </div>
+              <div class="form-group">
+                <%= label_tag :noteables, Spree.t(:noteables) %>
+                <%= select_tag :noteables, noteable_options, class: 'select2', multiple: true %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions" data-hook="buttons">
+        <%= button Spree.t('actions.update'), 'save.svg' %>
+        <span class="or"><%= Spree.t(:or) %></span>
+        <%= button_link_to Spree.t('actions.cancel'), edit_admin_note_settings_url, icon: 'cancel.svg' %>
+      </div>
+    </fieldset>
+  </div>
+
+<% end %>

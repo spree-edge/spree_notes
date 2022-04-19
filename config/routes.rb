@@ -6,5 +6,7 @@ Spree::Core::Engine.add_routes do
 
     resources :orders, only: [], concerns: :noteable
     resources :users, only: [], concerns: :noteable
+
+    resource :note_settings
   end
 end

@@ -5,6 +5,7 @@ module SpreeNotes
    # https://dev-docs.spreecommerce.org/internals/preferences
 
    preference :enabled, :boolean, default: true
+   preference :noteables, :array, default: []
    # preference :dark_chocolate, :boolean, default: true
    # preference :color, :string, default: 'Red'
    # preference :favorite_number, :integer
