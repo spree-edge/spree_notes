@@ -57,7 +57,7 @@ require 'spree_notes/factories'
 
 ## Contributing
 
-[See corresponding guidelines](https://github.com/bluebash-spree-contrib/spreenotes/blob/master/CONTRIBUTING.md)
+[See corresponding guidelines](https://github.com/bluebash-spree-contrib/spree_notes/blob/master/CONTRIBUTING.md)
 
 ---
 
