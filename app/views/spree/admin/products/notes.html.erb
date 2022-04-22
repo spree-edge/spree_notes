@@ -1,0 +1,15 @@
+<% @product = @behaveable %>
+<%= render 'spree/admin/shared/product_tabs', current: :notes %>
+
+<% content_for :page_title do %>
+  / <%= Spree.t('admin.notes') %>
+<% end %>
+
+<div class="card" id="add-line-item" data-hook style="margin-bottom: 20px;">
+  <div class="card-body">
+    <%= form_for [:admin, :products, Spree::Note.new], url: admin_product_notes_path(@product) , method: :post do |f| %>
+      <%= render 'spree/admin/notes/form', f: f %>
+    <% end %>
+    <%= render 'spree/admin/notes/list', notes: @notes %>
+  </div>
+</div>

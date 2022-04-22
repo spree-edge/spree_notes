@@ -2,7 +2,7 @@
 
 module SpreeOrderNotes
   module Spree
-    module UserDecorator
+    module ProductDecorator
       def self.prepended(base)
         base.has_many :notes, as: :notable if ::SpreeNotes::Config[:noteables].include?(base.table_name)
       end
@@ -10,6 +10,6 @@ module SpreeOrderNotes
   end
 end
 
-if ::Spree::User.included_modules.exclude?(SpreeOrderNotes::Spree::UserDecorator)
-  ::Spree::User.prepend SpreeOrderNotes::Spree::UserDecorator
+if ::Spree::Product.included_modules.exclude?(SpreeOrderNotes::Spree::ProductDecorator)
+  ::Spree::Product.prepend SpreeOrderNotes::Spree::ProductDecorator
 end

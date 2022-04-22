@@ -8,7 +8,8 @@ module Behaveable
       klass, param = behaveable_class
       return unless klass
 
-      klass.column_names.include?("number") ? klass.find_by!(number: params[param.to_sym]) : klass.find(params[param.to_sym])
+      _attr = col(klass)
+      klass.find_by!("#{_attr}" => params[param.to_sym])
     end
 
     private
@@ -26,6 +27,17 @@ module Behaveable
         end
       end
       nil
+    end
+
+    def col(klass)
+      case klass.name
+      when "Spree::Order"
+        'number'
+      when "Spree::Product"
+        'slug'
+      else
+        'id'
+      end
     end
   end
 end
