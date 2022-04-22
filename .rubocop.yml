@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   DisplayCopNames: true
   TargetRubyVersion: 3.0
   Include:
@@ -8,6 +9,9 @@ AllCops:
   Exclude:
     - 'spec/dummy/**/*'
     - 'lib/generators/**/*'
+
+Style/Encoding:
+  Enabled: true
 
 Metrics/LineLength:
   Max: 150
