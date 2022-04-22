@@ -2,7 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
   spree:
     note_settings: Note Settings
     noteables: Noteables
+    admin:
+      notes: Notes
+      note: Note
+      created_by: Created by
+      created_at: Created_at
