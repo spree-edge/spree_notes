@@ -10,6 +10,6 @@ module SpreeOrderNotes
   end
 end
 
-if ::Spree::User.included_modules.exclude?(SpreeOrderNotes::Spree::UserDecorator)
-  ::Spree::User.prepend SpreeOrderNotes::Spree::UserDecorator
+if ::Spree.user_class.included_modules.exclude?(SpreeOrderNotes::Spree::UserDecorator)
+  ::Spree.user_class.prepend SpreeOrderNotes::Spree::UserDecorator
 end
