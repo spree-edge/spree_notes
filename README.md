@@ -10,7 +10,11 @@ A Spree extension that provides ability to add useful notes to orders, products,
 
 * It includes ability to configure the note settings from admin panel.
 * Add notes to orders, products and users.
-* Easy to extend to add notes to any spree table. 
+* Easy to extend to add notes to any spree table.
+
+## **Demo**
+<img src="https://user-images.githubusercontent.com/103247578/165513428-d34e62f1-ee5a-497b-a7ac-4b5c18e12a10.gif" height=400; width=800;></img>
+
 
 ## **Installation**
 
@@ -32,7 +36,8 @@ A Spree extension that provides ability to add useful notes to orders, products,
     bundle exec rails g spree_notes:install
     ```
 
-4. Restart your server
+4. Restart your server!
+
 
   If your server was running, restart it so that it can find the assets properly.
 
@@ -45,8 +50,6 @@ bundle update
 bundle exec rake
 ```
 
-5. Screenshots
- <img width="1000px" src="https://user-images.githubusercontent.com/103247739/162427217-936d1197-2fc0-47c7-b945-8909cbcf7615.png">
 
 When testing your applications integration with this extension you may use it's factories.
 Simply add this require statement to your spec_helper:
