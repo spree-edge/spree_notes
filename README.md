@@ -4,7 +4,7 @@
 
 ## **About the project**
 
-* A Spree extension that provides ability to add useful notes to orders, products, users or any other spree table.
+A Spree extension that provides ability to add useful notes to orders, products, users or any other spree table.
 
 ## **Key Features**
 
