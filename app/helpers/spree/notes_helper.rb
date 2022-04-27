@@ -9,7 +9,11 @@ module Spree
     end
 
     def noteable_klasses
-      [Spree::Order, Spree::User, Spree::Product]
+      [
+        Spree::Order,
+        Spree::User,
+        Spree::Product
+      ]
     end
   end
 end
