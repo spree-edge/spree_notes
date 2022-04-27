@@ -57,8 +57,8 @@ A Spree extension that provides ability to add useful notes to orders, products,
         legacy_klasses << Spree::NewKlass
       end
     ```
-4. For adding sidebar tab of notes, feel free to create deface override with [reference](https://github.com/spree-edge/spree_notes/blob/master/app/overrides/spree/admin/shared/added_notes_tab.rb#L2).
-5. Add `notes.html.erb` as view template for new class with [reference](https://github.com/spree-edge/spree_notes/blob/master/app/views/spree/admin/orders/notes.html.erb)
+4. For adding sidebar tab of notes, feel free to create deface override with [reference][1].
+5. Add `notes.html.erb` as view template for new class with [reference][2].
 
 ## Testing
 
@@ -85,3 +85,8 @@ require 'spree_notes/factories'
 ---
 
 Copyright (c) 2022 Spree Edge. released under the [New BSD License](https://github.com/bluebash-spree-contrib/spree_notes/blob/master/LICENSE)
+
+
+
+[1]: https://github.com/spree-edge/spree_notes/blob/master/app/overrides/spree/admin/shared/added_notes_tab.rb#L2
+[2]: https://github.com/spree-edge/spree_notes/blob/master/app/views/spree/admin/orders/notes.html.erb
