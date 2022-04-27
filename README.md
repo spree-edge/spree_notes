@@ -2,7 +2,7 @@
 <!-- Write your README.md file. Build something amazing! This README.md template can guide you to build your project documentation, but feel free to modify it as you wish 🥰 -->
 # **Spree Notes**
 
-## **About the project**
+## **About**
 
 A Spree extension that provides ability to add useful notes to orders, products, users or any other spree table.
 
@@ -41,7 +41,7 @@ A Spree extension that provides ability to add useful notes to orders, products,
 
   If your server was running, restart it so that it can find the assets properly.
 
-## Configure New Class As Noteable
+## Configure new class as noteable
 
 1. Added association for notes to new class
 
