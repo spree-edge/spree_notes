@@ -6,7 +6,7 @@
 
 * A Spree extension that provides ability to add useful notes to orders, products, users or any other spree table.
 
-## **Feature List**
+## **Key Features**
 
 * It includes ability to configure the note settings from admin panel.
 * Add notes to orders, products and users.
