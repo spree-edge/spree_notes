@@ -2,7 +2,7 @@ module SpreeOrderNotes
   module Spree
     module OrderDecorator
       def self.prepended(base)
-        base.has_many :notes, as: :notable if ::SpreeNotes::Config[:noteables].include?(base.table_name)
+        base.has_many :notes, as: :notable
       end
     end
   end

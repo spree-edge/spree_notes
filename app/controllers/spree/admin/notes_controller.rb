@@ -2,7 +2,6 @@ module Spree
   module Admin
     class NotesController < Spree::Admin::BaseController
       include ::Behaveable::ResourceFinder
-      include ::Behaveable::RouteExtractor
 
 
       # Get notes.
