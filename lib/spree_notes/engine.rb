@@ -9,6 +9,16 @@ module SpreeNotes
       g.test_framework :rspec
     end
 
+    initializer "spree_notes.include_view_helpers" do |app|
+      ActiveSupport.on_load :action_view do
+        include Spree::NotesHelper
+      end
+    end
+
+    initializer 'spree_notes.environment', before: 'spree.environment' do |app|
+      require File.join(File.dirname(__FILE__), '../../app/models/spree_notes/configuration.rb')
+    end
+
     initializer 'spree_notes.environment', before: :load_config_initializers do |_app|
       SpreeNotes::Config = SpreeNotes::Configuration.new
     end

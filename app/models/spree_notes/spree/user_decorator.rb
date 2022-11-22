@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SpreeOrderNotes
+module SpreeNotes
   module Spree
     module UserDecorator
       def self.prepended(base)
@@ -10,6 +10,6 @@ module SpreeOrderNotes
   end
 end
 
-if ::Spree.user_class.included_modules.exclude?(SpreeOrderNotes::Spree::UserDecorator)
-  ::Spree.user_class.prepend SpreeOrderNotes::Spree::UserDecorator
+if ::Spree.user_class.included_modules.exclude?(SpreeNotes::Spree::UserDecorator)
+  ::Spree.user_class.prepend SpreeNotes::Spree::UserDecorator
 end
