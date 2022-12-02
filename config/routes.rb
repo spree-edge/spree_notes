@@ -6,8 +6,8 @@ Spree::Core::Engine.add_routes do
       resources :notes, only: %i[index create destroy]
     end
 
-    resources :orders, only: [], concerns: :noteable
-    resources :users, only: [], concerns: :noteable
-    resources :products, only: [], concerns: :noteable
+    SpreeNotes::Config[:noteables].each do |note_model|
+      resources note_model.split('_').last.to_sym, only: [], concerns: :noteable
+    end
   end
 end
