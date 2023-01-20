@@ -15,14 +15,27 @@
         </thead>
         <tbody>
           <% notes.each do |note| %>
-            <tr>
+            <tr class="show-note-<%= note.id %>">
               <td style='max-width: 400px;'><%= note.note %></td>
               <td><%= note.user&.email %></td>
               <td><%= note.created_at %></td>
               <td class="actions">
-                 <span class="d-flex justify-content-end">
-                  <%= button_to Spree.t(:delete),{ action: "destroy", id: note.id }, method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger'%>
+                <span class="d-flex justify-content-end">
+                  <%= link_to 'Edit', '#', class: "btn btn-primary note-edit-button", no_text: true, data: {action: 'edit', 'note-id' => note.id }, title: Spree.t('edit') %>
+                  <%= button_to Spree.t(:delete),{ action: "destroy", id: note.id },id: "delete_product_note_#{note.id}", method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger delete-product-note'%>
                 </span>
+              </td>
+            </tr>
+
+            <tr class="edit-note-<%= note.id %> is-hidden">
+              <td colspan="5">
+                <label><%= Spree.t(:note) %>:</label>
+                <%= text_field_tag :note, note.note, class: 'form-control', id: "edit-note-#{note.id}" %>
+              </td>
+              <td class="actions">
+                  <%= link_to_with_icon 'save', Spree.t('actions.save'), '#', class: "btn btn-success btn-sm note-save-button", :no_text => true, :data => {'note-id' => note.id , 'product-slug' => note.notable.slug, :action => 'save'}, :title => Spree.t('actions.save') %>
+
+                  <%= link_to_with_icon 'cancel', Spree.t('actions.cancel'), '#', :class => "cancel-note-#{note.id} btn btn-outline-success btn-sm note-cancel-button", :no_text => true, :data => {:action => 'cancel', 'note-id' => note.id}, :title => Spree.t('actions.cancel') %>
               </td>
             </tr>
           <% end %>
