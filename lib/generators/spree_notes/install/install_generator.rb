@@ -8,7 +8,7 @@ module SpreeNotes
       end
 
       def add_javascripts
-        append_file "vendor/assets/javascripts/spree/backend/all.js", "//= require spree/backend/edit_note\n"
+        append_file 'vendor/assets/javascripts/spree/backend/all.js', "//= require spree/backend/edit_note\n"
       end
 
       def run_migrations
