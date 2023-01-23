@@ -42,6 +42,14 @@ module Spree
         redirect_back(fallback_location: fallback_location)
       end
 
+      def update
+        note = noteable.find_by(id: params[:id])
+        note.update(notes_params)
+
+        flash[:success] = flash_message_for(note, :successfully_updated)
+        redirect_back(fallback_location: spree.polymorphic_path([:admin, note.notable, Spree::Note]))
+      end
+
       private
 
       # Get Spree::Note context object.

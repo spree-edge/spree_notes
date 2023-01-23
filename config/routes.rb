@@ -9,5 +9,7 @@ Spree::Core::Engine.add_routes do
     SpreeNotes::Config[:noteables].each do |note_model|
       resources note_model.split('_').last.to_sym, only: [], concerns: :noteable
     end
+
+    resources :notes, only: [:update]
   end
 end
