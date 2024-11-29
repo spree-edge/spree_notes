@@ -1,5 +1,5 @@
 module SpreeNotes
-  class Configuration < Spree::Preferences::Configuration
+  class Configuration < ::Spree::Preferences::Configuration
 
    # Some example preferences are shown below, for more information visit:
    # https://dev-docs.spreecommerce.org/internals/preferences

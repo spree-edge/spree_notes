@@ -1,8 +1,0 @@
-<% if (can? :manage, resource.class) && SpreeNotes::Config[:noteables].include?(resource.class.table_name) %>
-  <li data-hook='admin_order_tabs_notes'>
-    <%= link_to_with_icon 'file',
-      "Notes <span class='badge badge-warning'>#{resource.notes&.count}</span>".html_safe,
-      spree.polymorphic_path([:admin, resource, Spree::Note]),
-      class: "#{'active' if current == :notes} nav-link order-notes" %>
-  </li>
-<% end %>

@@ -1,4 +1,4 @@
-module SpreeOrderNotes
+module SpreeNotes
   module Spree
     module OrderDecorator
       def self.prepended(base)
@@ -8,4 +8,4 @@ module SpreeOrderNotes
   end
 end
 
-::Spree::Order.prepend SpreeOrderNotes::Spree::OrderDecorator if ::Spree::Order.included_modules.exclude?(SpreeOrderNotes::Spree::OrderDecorator)
+::Spree::Order.prepend(SpreeNotes::Spree::OrderDecorator)
